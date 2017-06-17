@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="menu">
+        <ul id="topnav" class="topnav">
+            <a href="" id="home">Home</a>
+            <a href="tableoverview.html" id="table-overview">Overwiew</a>
+            <a href="table_selection.html" id="table-selection">Table Selection</a>
+            <a href="order.html" id="order">Order</a>
+        </ul>
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="#starters-point" id="Starters">Starters</a>
+      <a href="#mains-point" id="Mains">Mains</a>
+      <a href="#drinks-point" id="Drinks">Drinks</a>
+    </div>
+    <div id="container">
+        <div id="main">
+            <h2 id="starters-point"> Starters </h2>
+            <div>
+                <table class="table-whole" id="item-table-starters">
+                    <!---->                                
+                </table>
+            </div>
+            <div>
+               <h2 id="mains-point"> Mains </h2>
+                <table class="table-whole" id="item-table-mains">
+                <!---->                                
+                </table>
+            </div>
+            <div>
+               <h2 id="drinks-point"> Drinks </h2>
+                <table class="table-whole" id="item-table-drinks">
+                <!---->                                
+                </table>
+            </div>
+        </div><!--End Of Main-->
+        
+
+        <div id="sidebar">
+            <h2> Side List</h2>
+            <div>  
+                <ul id="show-cart">
+                    <!-- -->
+                </ul>
+        
+        <div> You have <span id="count-cart"> </span> items in your cart</div> ............        
+        <div> Total Cart : $<span id="total-cart"></span></div>
+        <div>
+            <button id="clear-cart">Clear Cart</button>
+        </div>
+        
+    </div>
+        </div><!--End Of sidebar-->
+    </div><!--End Of container-->
+    <script src="meallist.js"></script>
+    <script src="shoppingcart.js"></script>
+    
+    
+    <script>
+        
+        /* $(".item-row").click(function(event){
+
+            event.preventDefault();
+            var name = $(this).children("td").attr("data-name");
+            var price = Number($(this).children("td").attr("data-price"));
+            
+            shoppingCart.addItemToCart(name,price,1);
+            displayCart();
+            
+        }); */
+        
+        $("#main").on("click",".item-row",function(event){
+                    
+            event.preventDefault();
+            var name = $(this).children("td").attr("data-name");
+            var price = Number($(this).children("td").attr("data-price"));
+            console.log("Name Price : "+name,price);
+            shoppingCart.addItemToCart(name,price,1);
+            displayCart();
+        });
+        
+        $("#clear-cart").click(function(event){
+            shoppingCart.clearCart();
+            displayCart();
+        });
+        
+        $("#show-cart").on("click",".subtract-item",function(event){
+                    
+            var name = $(this).attr("data-name");
+            shoppingCart.removeItemFromCart(name);
+            displayCart();
+        });
+        
+        $("#show-cart").on("click",".plus-item",function(event){
+                    
+            var name = $(this).attr("data-name");
+            shoppingCart.addItemToCart(name,0,1);
+            displayCart();
+        });        
+        
+      function displayCart()
+        {
+              
+            var cartArray = shoppingCart.listCart();
+            var output = "";
+            for (var i in cartArray)
+            {
+                output += "<li id='sidelist'>"
+                    +cartArray[i].name  
+                    +" <button class ='plus-item' data-name='"
+                    +cartArray[i].name+"'> + </button>   "+"<strong>"
+                    + cartArray[i].count+"</strong>"
+                    +"    <button class ='subtract-item' data-name='"
+                    +cartArray[i].name+"'> - </button>"
+                    +" = "+ cartArray[i].total                   
+                    +" <button class ='delete-item' data-name ='"
+                    +cartArray[i].name+"'> X </button>"
+                    +"</li>"
+            }
+            $("#show-cart").html(output);
+            $("#count-cart").html(shoppingCart.countCart());
+            $("#total-cart").html(shoppingCart.totalCart());
+        }  
+        
+        function assignTableNumber ()
+        {
+                
+        }
+        
+        function displayStarters()
+        {
+            
+            var cartArray = mealList.listStarters();
+            var starters = "";
+            for (var i in cartArray)
+            {
+                starters += "<tr class='item-row'><td id='item-name' data-name='"+cartArray[i].name + "'" 
+                    +" data-price='"+cartArray[i].price+"'>"
+                    +" <div><strong>"+cartArray[i].name
+                    +"</strong></div></td>"
+                    +"<td>"+cartArray[i].price
+                    +"</td></tr>"
+            }
+            $("#item-table-starters").html(starters);         
+         }  
+        
+        function displayMains()
+        {
+            
+            var cartArray = mealList.listMains();
+            var mains = "";
+            for (var i in cartArray)
+            {
+                mains += "<tr class='item-row'><td id='item-name' data-name='"+cartArray[i].name + "'" 
+                    +" data-price='"+cartArray[i].price+"'>"
+                    +" <div><strong>"+cartArray[i].name
+                    +"</strong></div></td>"
+                    +"<td>"+cartArray[i].price
+                    +"</td></tr>"
+            }
+            $("#item-table-mains").html(mains);         
+         }  
+        
+        displayStarters();
+        displayMains();
+        displayCart();
+
+        var arrayStarters = mealList.listStarters();
+        var arrayMains = mealList.listMains();
+        var arrayDrinks = mealList.listDrinks();
+
+        console.log(arrayStarters);
+        console.log(arrayMains);
+        console.log(arrayDrinks);
+
+    </script>
+
+</body>
+
+</html>
