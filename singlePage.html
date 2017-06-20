@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body ng-app="app" ng-Controller="StoreController as storeCtrl">
+    <div class="menu">
+      <ul id="topnav" class="topnav">
+        <a href ng-click="storeCtrl.orderView = false">Overview</a>
+        <a href ng-click="storeCtrl.orderView = true">Order</a>
+      </ul>
+    </div>
+    <div ng-show="storeCtrl.orderView">
+      <div id="mySidenav" class="sidenav">
+      <a href="#starters" id="Starters">Starters</a>
+      <a href="#mains" id="Mains">Mains</a>
+      <a href="#drinks" id="Drinks">Drinks</a>
+    </div>
+      <div id="container" ng-controller="MenuController as menuCtrl">
+        <div id="main">
+        Table number: <select ng-model="menuCtrl.tableNo">
+          <option ng-repeat="table in menuCtrl.table" value="{{table.no}}">{{table.no}}</option>
+        </select>
+        <div id="starters">
+          <h2>Starters</h2>
+          <table class="table-whole" id="item-table-starter">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'starters'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+        </div>
+        <div id="mains">
+          <h2>Mains</h2>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'mains'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+        </div>
+        <div id="drinks">
+          <h2>Drinks</h2>
+          <table class="table-whole" id="item-table-drinks">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'drinks'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+        <div id="sidebar">
+        <h2>Side List</h2>
+        <div ng-hide="menuCtrl.table[menuCtrl.tableNo-1].occupied">
+          No order(s) is placed.
+        </div>
+        <div ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
+          <ul id="show-cart">
+            <li id="sidelist" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
+              {{order.name}}
+              <button ng-click="menuCtrl.removeOne(order)">-</button>
+              {{order.quantity}}
+              <button ng-click="menuCtrl.addOne(order)">+</button>
+              =
+              {{order.price | currency}}
+            </li>
+          </ul>
+          <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
+          <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
+          <div>
+            <button id="clear-cart" ng-click="menuCtrl.clearCart()">Clear cart</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+    <div ng-hide="storeCtrl.orderView">
+      <h2>Table Overview</h2>
+      <div ng-repeat="table in storeCtrl.tables" ng-show="table.occupied">
+        Table No: {{table.no}}<br />
+        Total Amount: {{table.total | currency}}
+        <hr />
+      </div>
+    </div>
+  </body>
+
+</html>
