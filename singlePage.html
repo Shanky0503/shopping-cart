@@ -19,11 +19,11 @@
       <a href="#starters" id="Starters">Starters</a>
       <a href="#mains" id="Mains">Mains</a>
       <a href="#drinks" id="Drinks">Drinks</a>
-    </div>
+      </div>
       <div id="container" ng-controller="MenuController as menuCtrl">
         <div id="main">
-        Table number: <select ng-model="menuCtrl.tableNo">
-          <option ng-repeat="table in menuCtrl.table" value="{{table.no}}">{{table.no}}</option>
+        Table number: <select ng-model="menuCtrl.tableNo" ng-init="menuCtrl.count = 0">
+          <option ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
         </select>
         <div id="starters">
           <h2>Starters</h2>
@@ -38,25 +38,213 @@
         </div>
         <div id="mains">
           <h2>Mains</h2>
+          
+          <h3>Curry Corner</h3>
           <table class="table-whole" id="item-table-mains">
-            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'mains'" ng-click="menuCtrl.addMenu(menu)">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'CurryCorner'" ng-click="menuCtrl.addMenu(menu)">
               <td>
                 <div><strong>{{menu.name}}</strong></div>
               </td>
               <td>{{menu.price}}</td>
             </tr>
           </table>
+          
+          <h3>Gulai Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Gulai'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Sambal Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Sambal'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Rendang Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Rendang'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Masak Lemak Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'MasakLemak'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Nasi Lemak Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'NasiLemak'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Kurma Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Kurma'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Garden Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Garden'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Chinese Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Chinese'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Chef's Special</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Special'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Dosa Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Dosa'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Hawkers Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Hawkers'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Roti Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Roti'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Side Corner</h3>
+          <table class="table-whole" id="item-table-mains">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Side'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
         </div>
         <div id="drinks">
           <h2>Drinks</h2>
+          
+          <h3>Whites</h3>          
           <table class="table-whole" id="item-table-drinks">
-            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'drinks'" ng-click="menuCtrl.addMenu(menu)">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'whitewine'" ng-click="menuCtrl.addMenu(menu)">
               <td>
                 <div><strong>{{menu.name}}</strong></div>
               </td>
               <td>{{menu.price}}</td>
             </tr>
           </table>
+          
+          
+          <h3>Reds</h3>
+          <table class="table-whole" id="item-table-drinks">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Red'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Beers</h3>
+          <table class="table-whole" id="item-table-drinks">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Beer'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Soft Drinks</h3>
+          <table class="table-whole" id="item-table-drinks">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'SoftDrinks'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Hot Drinks</h3>
+          <table class="table-whole" id="item-table-drinks">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'HotDrinks'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          <h3>Sprites</h3>
+          <table class="table-whole" id="item-table-drinks">
+            <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Sprites'" ng-click="menuCtrl.addMenu(menu)">
+              <td>
+                <div><strong>{{menu.name}}</strong></div>
+              </td>
+              <td>{{menu.price}}</td>
+            </tr>
+          </table>
+          
+          
         </div>
       </div>
 
@@ -74,6 +262,7 @@
               <button ng-click="menuCtrl.addOne(order)">+</button>
               =
               {{order.price | currency}}
+              <button ng-click="menuCtrl.removeItem(order)">X</button>
             </li>
           </ul>
           <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
@@ -91,6 +280,7 @@
       <div ng-repeat="table in storeCtrl.tables" ng-show="table.occupied">
         Table No: {{table.no}}<br />
         Total Amount: {{table.total | currency}}
+        <button id="clear-cart" ng-click="storeCtrl.clearCart($index)">X</button>
         <hr />
       </div>
     </div>
