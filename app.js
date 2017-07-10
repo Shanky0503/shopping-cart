@@ -51,6 +51,7 @@
       { name: 'Mee Goreng', price: 17.90, category: 'Hawkers' },
       { name: 'Nasi Goreng', price: 17.90, category: 'Hawkers' },
       { name: 'Chicken Murtabak', price: 18.90, category: 'Roti' },
+      { name: 'Kothu Roti', price: 18.90, category: 'Roti' },
       { name: 'Plain Roti', price: 3.00, category: 'Roti' },
       { name: 'Garlic Roti', price: 3.50, category: 'Roti' },
       { name: 'Egg and Onion Roti', price: 4.50, category: 'Roti' },
@@ -58,6 +59,10 @@
       { name: 'Pappadoms', price: 1.50, category: 'Side' },
       { name: 'Peanut Sauce', price: 3.00, category: 'Side' },
       { name: 'Raita', price: 4.90, category: 'Side' },
+      { name: 'Extra', price: 0.50, category: 'Side' },
+      { name: 'Extra02', price: 1.00, category: 'Side' },
+      { name: 'Extra03', price: 2.00, category: 'Side' },
+      { name: 'Sub', price: -1.00, category: 'Side' },
       { name: 'BYO', price: 5.00, category: 'whitewine' },
       { name: 'Mi Terruno - Chardonnay Glass', price: 7.50, category: 'whitewine' },
       { name: 'Mi Terruno - Chardonnay Bottle', price: 34.00, category: 'whitewine' },
@@ -91,33 +96,33 @@
       { name: 'Steinlager', price: 8.00, category: 'Beer' },
       { name: 'Stella Artois Pilsner ', price: 8.00, category: 'Beer' },
       { name: 'Tiger Lager ', price: 8.00, category: 'Beer' },
-      { name: 'Tuatara Pilsner ', price: 8.00, category: 'Beer' },      
-      { name: 'Coke', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'Diet Coke', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'Sprite', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'L&P', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'Mango Lassi', price: 4.50, category: 'SoftDrinks' },      
-      { name: 'Sweet Lassi', price: 4.00, category: 'SoftDrinks' },      
-      { name: 'Apple Juice', price: 4.00, category: 'SoftDrinks' },      
-      { name: 'Apple Cider', price: 7.00, category: 'SoftDrinks' },      
-      { name: 'Pinapple Juice', price: 4.00, category: 'SoftDrinks' },      
-      { name: 'Orange Juice', price: 4.00, category: 'SoftDrinks' },      
-      { name: 'Ginger Beer', price: 4.00, category: 'SoftDrinks' },      
-      { name: 'Soda Water', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'Sparkling Water', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'Tonic Water', price: 3.50, category: 'SoftDrinks' },      
-      { name: 'Gin', price: 4.50, category: 'Sprites' },                  
-      { name: 'Tequila', price: 4.50, category: 'Sprites' },      
-      { name: 'Bourboun', price: 4.50, category: 'Sprites' },      
-      { name: 'Vodka', price: 4.50, category: 'Sprites' },      
-      { name: 'Whisky', price: 4.50, category: 'Sprites' },      
-      { name: 'White Rum', price: 4.50, category: 'Sprites' },      
-      { name: 'Malaysian Teh Tarik', price: 4.00, category: 'HotDrinks' },      
-      { name: 'Malaysian Kopi', price: 4.00, category: 'HotDrinks' },      
-      { name: 'Ginger Masala Tea', price: 4.00, category: 'HotDrinks' },      
-      { name: 'Green Tea', price: 4.00, category: 'HotDrinks' },      
-      { name: 'Black Tea', price: 4.00, category: 'HotDrinks' },      
-           
+      { name: 'Tuatara Pilsner ', price: 8.00, category: 'Beer' },
+      { name: 'Coke', price: 3.50, category: 'SoftDrinks' },
+      { name: 'Diet Coke', price: 3.50, category: 'SoftDrinks' },
+      { name: 'Sprite', price: 3.50, category: 'SoftDrinks' },
+      { name: 'L&P', price: 3.50, category: 'SoftDrinks' },
+      { name: 'Mango Lassi', price: 4.50, category: 'SoftDrinks' },
+      { name: 'Sweet Lassi', price: 4.00, category: 'SoftDrinks' },
+      { name: 'Apple Juice', price: 4.00, category: 'SoftDrinks' },
+      { name: 'Apple Cider', price: 7.00, category: 'SoftDrinks' },
+      { name: 'Pinapple Juice', price: 4.00, category: 'SoftDrinks' },
+      { name: 'Orange Juice', price: 4.00, category: 'SoftDrinks' },
+      { name: 'Ginger Beer', price: 4.00, category: 'SoftDrinks' },
+      { name: 'Soda Water', price: 3.50, category: 'SoftDrinks' },
+      { name: 'Sparkling Water', price: 3.50, category: 'SoftDrinks' },
+      { name: 'Tonic Water', price: 3.50, category: 'SoftDrinks' },
+      { name: 'Gin', price: 4.50, category: 'Sprites' },
+      { name: 'Tequila', price: 4.50, category: 'Sprites' },
+      { name: 'Bourboun', price: 4.50, category: 'Sprites' },
+      { name: 'Vodka', price: 4.50, category: 'Sprites' },
+      { name: 'Whisky', price: 4.50, category: 'Sprites' },
+      { name: 'White Rum', price: 4.50, category: 'Sprites' },
+      { name: 'Malaysian Teh Tarik', price: 4.00, category: 'HotDrinks' },
+      { name: 'Malaysian Kopi', price: 4.00, category: 'HotDrinks' },
+      { name: 'Ginger Masala Tea', price: 4.00, category: 'HotDrinks' },
+      { name: 'Green Tea', price: 4.00, category: 'HotDrinks' },
+      { name: 'Black Tea', price: 4.00, category: 'HotDrinks' },
+
     ];
     $rootScope.table = [
       {no: '1', occupied: false, orders: [], total: 0},
@@ -156,7 +161,7 @@
   app.controller('MenuController',['$rootScope', '$filter', function($rootScope,$filter){
     this.menuItem = $rootScope.menuItem;
     this.table = $rootScope.table;
-    this.tableNo = 1;    
+    this.tableNo = 1;
     this.item = function(name, price, cost, quantity){
       this.name = name,
       this.price = price,
@@ -187,7 +192,7 @@
         var index = tempTable.orders.indexOf(order);
         tempTable.orders.splice(index, 1);
     };
-      
+
     this.clearCart = function(){
       var tempTable = this.table[this.tableNo-1];
       tempTable.occupied=false;

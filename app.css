@@ -2,10 +2,15 @@ body{
     padding: 0;
     margin: 0;
 }
-
+ul {
+  list-style-type: none;
+}
 .topnav{
     background-color: #e74c3c;
     overflow: hidden;
+    left: 0px;
+    margin-bottom: 10px;
+
 }
 
 .topnav  a{
@@ -31,7 +36,7 @@ body{
 
 #mySidenav a {
     position: fixed;
-    left: -100px;
+    left: 0px;
     transition: 0.3s;
     padding: 15px;
     width: 100px;
@@ -42,7 +47,7 @@ body{
 }
 
 #mySidenav a:hover {
-    left: 0;
+    border: 2px solid #F29B34;
 }
 
 #Starters {
@@ -77,12 +82,28 @@ body{
 }
 
 #sidebar {
-    width: 450px;
+    width: 650px;
     float: left;
-    background-color: blueviolet;
+    background-color: #EB6361;
     color: white;
     text-align: center;
+    font-size: 20px;
 }
+
+
+.side-items{
+  background: white;
+  color: black;
+  font-family: monospace;
+}
+.sidelist-holder li:nth-child(even) {
+    background: lightblue;
+}
+
+
+/*.side-items:nth-child(2) {
+    background: lightblue;
+}*/
 
 li#sidelist{
     text-align: left;
@@ -144,5 +165,38 @@ div#sidebar {
     position: fixed;
     float: right;
     right: 0;
+}
+.overview-top{
+  font: verdana;
+  background-color: #EB9532;
+  padding: 10px;
+  text-align: center;
+  font-size: 60px;
 
+}
+
+.overview {
+  text-align: center;
+  background-color: #83D6DE;
+  float: left;
+  /*padding-right: 30px;*/
+  margin-right: 30px;
+}
+
+.overview-heading{
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+.overview-amount{
+  margin-top: 10px;
+  font-weight: normal;
+  font-family: sans-serif;
+  color: white;
+  font-size: 50px;
+  color: #282830;
+  margin-bottom: 0px;
 }
