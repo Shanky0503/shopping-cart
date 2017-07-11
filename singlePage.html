@@ -17,7 +17,16 @@
     <div ng-show="storeCtrl.orderView">
       <div id="mySidenav" class="sidenav">
       <a href="#starters" id="Starters">Starters</a>
-      <a href="#mains" id="Mains">Mains</a>
+      <a href="#mains" id="Mains" class="">Mains</a>
+      <div class="dropdown">
+        <ul>
+          <li><a href="#">CurryCorner</a></li>
+          <li><a href="#">GulaiCorner</a></li>
+          <li><a href="#">SambalCorner</a></li>
+        </ul>
+
+      </div>
+
       <a href="#drinks" id="Drinks">Drinks</a>
       </div>
       <div id="container" ng-controller="MenuController as menuCtrl">
@@ -301,7 +310,7 @@
     <div class="print-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
       <ul id="show-cart">
         <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
-          <table>
+          <!-- <table>
             <tr>
                 <td>{{order.name}}</td>
                 <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
@@ -310,14 +319,14 @@
                 <td>= {order.price | currency}}</td>
                 <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
             </tr>
-          </table>
-          <!-- {{order.name}}
+          </table> -->
+          {{order.name}}
           <button ng-click="menuCtrl.removeOne(order)">-</button>
           {{order.quantity}}
           <button ng-click="menuCtrl.addOne(order)">+</button>
           =
           {{order.price | currency}}
-          <button ng-click="menuCtrl.removeItem(order)">X</button> -->
+          <button ng-click="menuCtrl.removeItem(order)">X</button>
         </li>
       </ul>
       <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>

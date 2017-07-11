@@ -62,7 +62,7 @@
       { name: 'Extra', price: 0.50, category: 'Side' },
       { name: 'Extra02', price: 1.00, category: 'Side' },
       { name: 'Extra03', price: 2.00, category: 'Side' },
-      { name: 'Sub', price: -1.00, category: 'Side' },
+      { name: 'Extra04', price: -1.00, category: 'Side' },
       { name: 'BYO', price: 5.00, category: 'whitewine' },
       { name: 'Mi Terruno - Chardonnay Glass', price: 7.50, category: 'whitewine' },
       { name: 'Mi Terruno - Chardonnay Bottle', price: 34.00, category: 'whitewine' },
@@ -234,6 +234,10 @@
     this.addOne = function(order){
       order.quantity++;
       order.price += order.cost;
+    }
+
+    this.mainsSelection = function(){
+      console.log("");
     }
 
   }]);
