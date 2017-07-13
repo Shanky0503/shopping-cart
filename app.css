@@ -59,38 +59,10 @@ ul {
     top: 220px;
     background-color: #2196F3;
 }
-.dropdown {
 
-  font-size: 10px;
-}
-.dropdown a {
-  top: 280px;
-  font-size: 10px;
-  background-color: #2196F3;
-  /*float: inherit;*/
-  /*display: inline-block;*/
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
 
 #Drinks {
-    top: 680px;
+    top: 280px;
     background-color: #f44336;
 }
 
@@ -118,7 +90,6 @@ ul {
     text-align: center;
     font-size: 20px;
 }
-
 
 .side-items{
   background: white;
@@ -228,4 +199,11 @@ div#sidebar {
   font-size: 50px;
   color: #282830;
   margin-bottom: 0px;
+}
+
+.dropdown-menu a {
+  display: inline-block;
+  position: relative;
+  background-color: black;
+  float: bottom;
 }
