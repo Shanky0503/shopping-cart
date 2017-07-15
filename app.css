@@ -34,7 +34,7 @@ ul {
     color: #34495e;
 }
 
-#mySidenav a {
+/*#mySidenav a {
     position: fixed;
     left: 0px;
     transition: 0.3s;
@@ -44,27 +44,59 @@ ul {
     font-size: 20px;
     color: white;
     border-radius: 0 5px 5px 0;
+}*/
+/* Side Menu  */
+
+.sidenav{
+  width:150px;
+  position: fixed;
+  left: 0px;
 }
 
-#mySidenav a:hover {
-    border: 2px solid #F29B34;
+.mainmenu, .submenu{
+  list-style:none;
+  margin:0;
+  padding:0;
 }
 
-#Starters {
-    top: 160px;
-    background-color: #4CAF50;
+.mainmenu a {
+  display: block;
+  background-color: #34495E;
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+  border-left: 8px solid #EE7469;
 }
 
-#Mains {
-    top: 220px;
-    background-color: #2196F3;
+.mainmenu a:hover {
+    background-color: #B0DACC;
+}
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+.submenu a {
+  background-color: #2980B9;
+}
+
+.submenu a:hover {
+  background-color: #9DA5A6;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
 }
 
 
-#Drinks {
-    top: 280px;
-    background-color: #f44336;
-}
+/* Side Menu End */
+
+
+
+
 
 #container {
     width: 1400px;

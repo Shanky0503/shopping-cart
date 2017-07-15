@@ -16,16 +16,17 @@
     </div>
     <div ng-show="storeCtrl.orderView">
       <div id="mySidenav" class="sidenav">
-      <a href="#starters" id="Starters">Starters</a>
-      <a href="#mains" id="Mains" class="drop-parent">Mains </a>
-        <div class="dropdown-menu">
-          <ul>
-            <li><a href="#">CurryCorner</a></li>
-            <li><a href="#">GulaiCorner</a></li>
-            <li><a href="#">RendangCorner</a></li>
-          </ul>
-        </div>
-      <a href="#drinks" id="Drinks">Drinks</a>
+        <ul class="mainmenu">
+          <li><a href="#starters" id="Starters">Starters</a></li>
+          <li><a href="#mains" id="Mains" class="">Mains</a>
+            <ul class="submenu">
+              <li><a href="#">CurryCorner</a></li>
+              <li><a href="#">GulaiCorner</a></li>
+              <li><a href="#">SambalCorner</a></li>
+            </ul>
+          </li>
+          <li><a href="#drinks" id="Drinks">Drinks</a></li>
+        </ul>
       </div>
       <div id="container" ng-controller="MenuController as menuCtrl">
         <div id="main">
