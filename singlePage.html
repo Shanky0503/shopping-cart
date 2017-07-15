@@ -4,6 +4,7 @@
     <title>Cart</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="app.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" /> -->
     <link rel="stylesheet" href="app.css" />
   </head>
 
@@ -15,20 +16,21 @@
       </ul>
     </div>
     <div ng-show="storeCtrl.orderView">
-      <div id="mySidenav" class="sidenav">
-        <ul class="mainmenu">
-          <li><a href="#starters" id="Starters">Starters</a></li>
-          <li><a href="#mains" id="Mains" class="">Mains</a>
-            <ul class="submenu">
-              <li><a href="#">CurryCorner</a></li>
-              <li><a href="#">GulaiCorner</a></li>
-              <li><a href="#">SambalCorner</a></li>
-            </ul>
-          </li>
-          <li><a href="#drinks" id="Drinks">Drinks</a></li>
-        </ul>
-      </div>
+
       <div id="container" ng-controller="MenuController as menuCtrl">
+        <div id="mySidenav" class="sidenav">
+          <ul class="mainmenu">
+            <li><a href="#starters" id="Starters">Starters</a></li>
+            <li><a href="#mains" id="Mains" class="">Mains</a>
+              <ul class="submenu">
+                <li><a href="#">CurryCorner</a></li>
+                <li><a href="#">GulaiCorner</a></li>
+                <li><a href="#">SambalCorner</a></li>
+              </ul>
+            </li>
+            <li><a href="#drinks" id="Drinks">Drinks</a></li>
+          </ul>
+        </div>
         <div id="main">
         Table number: <select ng-model="menuCtrl.tableNo" ng-init="menuCtrl.count = 0">
           <option ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
@@ -263,26 +265,27 @@
         </div>
         <div class="sidelist-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
           <ul id="show-cart">
-            <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
-              {{order.name}}
+            <li id="sidelist" class="side-items" >
+              <!-- {{order.name}}
               <button ng-click="menuCtrl.removeOne(order)">-</button>
               {{order.quantity}}
               <button ng-click="menuCtrl.addOne(order)">+</button>
               =
               {{order.price | currency}}
-              <button ng-click="menuCtrl.removeItem(order)">X</button>
-            </li>
-            <!-- <table>
-              <tr>
-                  <td>{{order.name}}</td>
-                  <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
-                  <td>{{order.quantity}}</td>
-                  <td><button ng-click="menuCtrl.addOne(order)">+</button></td>
-                  <td>= {order.price | currency}}</td>
-                  <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
-              </tr>
-            </table> -->
+              <button ng-click="menuCtrl.removeItem(order)">X</button> -->
+          </li>
+
           </ul>
+          <table>
+            <tr ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
+                <td>{{order.name}}</td>
+                <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
+                <td>{{order.quantity}}</td>
+                <td><button ng-click="menuCtrl.addOne(order)">+</button></td>
+                <td>= {{order.price | currency}}</td>
+                <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
+            </tr>
+          </table>
           <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
           <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
           <div>
@@ -305,27 +308,27 @@
     </div>
 
     <div id="printPage">
-    <h2>Papa Satay</h2>
+    <!-- <h2>Papa Satay</h2> -->
     <div class="print-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
       <ul id="show-cart">
         <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
-          <!-- <table>
+          <table>
             <tr>
                 <td>{{order.name}}</td>
                 <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
                 <td>{{order.quantity}}</td>
                 <td><button ng-click="menuCtrl.addOne(order)">+</button></td>
-                <td>= {order.price | currency}}</td>
+                <td>= {{order.price | currency}}</td>
                 <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
             </tr>
-          </table> -->
-          {{order.name}}
+          </table>
+          <!-- {{order.name}}
           <button ng-click="menuCtrl.removeOne(order)">-</button>
           {{order.quantity}}
           <button ng-click="menuCtrl.addOne(order)">+</button>
           =
           {{order.price | currency}}
-          <button ng-click="menuCtrl.removeItem(order)">X</button>
+          <button ng-click="menuCtrl.removeItem(order)">X</button> -->
         </li>
       </ul>
       <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>

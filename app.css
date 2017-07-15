@@ -5,12 +5,12 @@ body{
 ul {
   list-style-type: none;
 }
+
 .topnav{
     background-color: #e74c3c;
     overflow: hidden;
     left: 0px;
     margin-bottom: 10px;
-
 }
 
 .topnav  a{
@@ -48,9 +48,10 @@ ul {
 /* Side Menu  */
 
 .sidenav{
-  width:150px;
+  width:10;
   position: fixed;
   left: 0px;
+
 }
 
 .mainmenu, .submenu{
@@ -99,7 +100,8 @@ ul {
 
 
 #container {
-    width: 1400px;
+    /*width: 1400px;*/
+    width: 100%;
     margin: 0px auto;
     overflow: hidden;
     padding: 15px;
@@ -107,7 +109,9 @@ ul {
 
 #main {
     /*width: 600px;*/
+    /*position: relative;*/
     margin: auto;
+    margin-left: 120px;
     width: 50%;
     float: left;
     background-color: burlywood;
@@ -115,7 +119,8 @@ ul {
 }
 
 #sidebar {
-    width: 650px;
+    /*width: 650px;*/
+    width: 30%;
     float: left;
     background-color: #EB6361;
     color: white;
