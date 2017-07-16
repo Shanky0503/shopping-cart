@@ -23,9 +23,20 @@
             <li><a href="#starters" id="Starters">Starters</a></li>
             <li><a href="#mains" id="Mains" class="">Mains</a>
               <ul class="submenu">
-                <li><a href="#">CurryCorner</a></li>
-                <li><a href="#">GulaiCorner</a></li>
-                <li><a href="#">SambalCorner</a></li>
+                <li><a href="#CurryCorner">Curry Corner</a></li>
+                <li><a href="#GulaiCorner">Gulai Corner</a></li>
+                <li><a href="#SambalCorner">Sambal Corner</a></li>
+                <li><a href="#RendangCorner">Rendang Corner</a></li>
+                <li><a href="#MasakLemakCorner">Masak Lemak Corner</a></li>
+                <li><a href="#NasiLemakCorner">Nasi Lemak Corner</a></li>
+                <li><a href="#KurmaCorner">Kurma Corner</a></li>
+                <li><a href="#GardenCorner">Garden Corner</a></li>
+                <li><a href="#ChineseCorner">Chinese Corner</a></li>
+                <li><a href="#ChefsCorner">Chefs Corner</a></li>
+                <li><a href="#DosaCorner">Dosa Corner</a></li>
+                <li><a href="#HawkersCorner">Hawkers Corner</a></li>
+                <li><a href="#RotiCorner">Roti Corner</a></li>
+                <li><a href="#Side">Side Corner</a></li>
               </ul>
             </li>
             <li><a href="#drinks" id="Drinks">Drinks</a></li>
@@ -33,8 +44,9 @@
         </div>
         <div id="main">
         Table number: <select ng-model="menuCtrl.tableNo" ng-init="menuCtrl.count = 0">
-          <option ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
+          <option  ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
         </select>
+        <button ng-click="menuCtrl.tableNo = $index+1" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button>
         <div id="starters">
           <h2>Starters</h2>
           <table class="table-whole" id="item-table-starter">
@@ -49,7 +61,7 @@
         <div id="mains">
           <h2>Mains</h2>
 
-          <h3>Curry Corner</h3>
+          <h3 id="CurryCorner">Curry Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'CurryCorner'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -59,7 +71,7 @@
             </tr>
           </table>
 
-          <h3>Gulai Corner</h3>
+          <h3 id="GulaiCorner">Gulai Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Gulai'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -69,7 +81,7 @@
             </tr>
           </table>
 
-          <h3>Sambal Corner</h3>
+          <h3 id="SambalCorner">Sambal Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Sambal'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -79,7 +91,7 @@
             </tr>
           </table>
 
-          <h3>Rendang Corner</h3>
+          <h3 id="RendangCorner">Rendang Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Rendang'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -89,7 +101,7 @@
             </tr>
           </table>
 
-          <h3>Masak Lemak Corner</h3>
+          <h3 id="MasakLemakCorner">Masak Lemak Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'MasakLemak'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -99,7 +111,7 @@
             </tr>
           </table>
 
-          <h3>Nasi Lemak Corner</h3>
+          <h3 id="NasiLemakCorner">Nasi Lemak Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'NasiLemak'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -109,7 +121,7 @@
             </tr>
           </table>
 
-          <h3>Kurma Corner</h3>
+          <h3 id="KurmaCorner">Kurma Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Kurma'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -119,7 +131,7 @@
             </tr>
           </table>
 
-          <h3>Garden Corner</h3>
+          <h3 id="GardenCorner">Garden Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Garden'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -129,7 +141,7 @@
             </tr>
           </table>
 
-          <h3>Chinese Corner</h3>
+          <h3 id="ChineseCorner">Chinese Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Chinese'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -139,7 +151,7 @@
             </tr>
           </table>
 
-          <h3>Chef's Special</h3>
+          <h3 id="ChefsSpecial">Chef's Special</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Special'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -149,7 +161,7 @@
             </tr>
           </table>
 
-          <h3>Dosa Corner</h3>
+          <h3 id="DosaCorner">Dosa Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Dosa'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -159,7 +171,7 @@
             </tr>
           </table>
 
-          <h3>Hawkers Corner</h3>
+          <h3 id="HawkersCorner">Hawkers Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Hawkers'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -169,7 +181,7 @@
             </tr>
           </table>
 
-          <h3>Roti Corner</h3>
+          <h3 id="RotiCorner">Roti Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Roti'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -179,7 +191,7 @@
             </tr>
           </table>
 
-          <h3>Side Corner</h3>
+          <h3 id="Side">Side Corner</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Side'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -202,7 +214,6 @@
               <td>{{menu.price}}</td>
             </tr>
           </table>
-
 
           <h3>Reds</h3>
           <table class="table-whole" id="item-table-drinks">
@@ -233,7 +244,6 @@
               <td>{{menu.price}}</td>
             </tr>
           </table>
-
           <h3>Hot Drinks</h3>
           <table class="table-whole" id="item-table-drinks">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'HotDrinks'" ng-click="menuCtrl.addMenu(menu)">
@@ -243,7 +253,6 @@
               <td>{{menu.price}}</td>
             </tr>
           </table>
-
           <h3>Sprites</h3>
           <table class="table-whole" id="item-table-drinks">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Sprites'" ng-click="menuCtrl.addMenu(menu)">
@@ -253,8 +262,6 @@
               <td>{{menu.price}}</td>
             </tr>
           </table>
-
-
         </div>
       </div>
 
@@ -266,17 +273,17 @@
         <div class="sidelist-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
           <ul id="show-cart">
             <li id="sidelist" class="side-items" >
-              <!-- {{order.name}}
+              {{order.name}}
               <button ng-click="menuCtrl.removeOne(order)">-</button>
               {{order.quantity}}
               <button ng-click="menuCtrl.addOne(order)">+</button>
               =
               {{order.price | currency}}
-              <button ng-click="menuCtrl.removeItem(order)">X</button> -->
-          </li>
+              <button ng-click="menuCtrl.removeItem(order)">X</button>
+            </li>
 
           </ul>
-          <table>
+          <!-- <table>
             <tr ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
                 <td>{{order.name}}</td>
                 <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
@@ -285,7 +292,7 @@
                 <td>= {{order.price | currency}}</td>
                 <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
             </tr>
-          </table>
+          </table> -->
           <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
           <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
           <div>
@@ -298,7 +305,7 @@
       </div>
     </div>
     <div ng-hide="storeCtrl.orderView">
-      <!-- <h2 class="overview-top" >Table Overview</h2> -->
+      <h2 class="overview-top" >Table Overview</h2>
       <div class="overview" ng-repeat="table in storeCtrl.tables" ng-show="table.occupied">
         <h4 class="overview-heading">Table No: {{table.no}}</h4>
         <p class="overview-amount">{{table.total | currency}}</p>

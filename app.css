@@ -2,6 +2,7 @@ body{
     padding: 0;
     margin: 0;
 }
+
 ul {
   list-style-type: none;
 }
@@ -34,24 +35,12 @@ ul {
     color: #34495e;
 }
 
-/*#mySidenav a {
-    position: fixed;
-    left: 0px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 100px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    border-radius: 0 5px 5px 0;
-}*/
 /* Side Menu  */
 
 .sidenav{
   width:10;
-  position: fixed;
+  position: relative;
   left: 0px;
-
 }
 
 .mainmenu, .submenu{
@@ -75,7 +64,7 @@ ul {
 
 .mainmenu li:hover .submenu {
   display: block;
-  max-height: 200px;
+  max-height: 600px;
 }
 
 .submenu a {
@@ -95,10 +84,6 @@ ul {
 
 /* Side Menu End */
 
-
-
-
-
 #container {
     /*width: 1400px;*/
     width: 100%;
@@ -111,7 +96,7 @@ ul {
     /*width: 600px;*/
     /*position: relative;*/
     margin: auto;
-    margin-left: 120px;
+    margin-left: 170px;
     width: 50%;
     float: left;
     background-color: burlywood;
