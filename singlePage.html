@@ -46,7 +46,7 @@
         Table number: <select ng-model="menuCtrl.tableNo" ng-init="menuCtrl.count = 0">
           <option  ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
         </select>
-        <button ng-click="menuCtrl.tableNo = $index+1" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button>
+        <!-- <button ng-click="menuCtrl.tableNo = $index+1" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button> -->
         <div id="starters">
           <h2>Starters</h2>
           <table class="table-whole" id="item-table-starter">
@@ -272,7 +272,7 @@
         </div>
         <div class="sidelist-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
           <ul id="show-cart">
-            <li id="sidelist" class="side-items" >
+            <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
               {{order.name}}
               <button ng-click="menuCtrl.removeOne(order)">-</button>
               {{order.quantity}}
@@ -281,18 +281,7 @@
               {{order.price | currency}}
               <button ng-click="menuCtrl.removeItem(order)">X</button>
             </li>
-
           </ul>
-          <!-- <table>
-            <tr ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
-                <td>{{order.name}}</td>
-                <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
-                <td>{{order.quantity}}</td>
-                <td><button ng-click="menuCtrl.addOne(order)">+</button></td>
-                <td>= {{order.price | currency}}</td>
-                <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
-            </tr>
-          </table> -->
           <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
           <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
           <div>
