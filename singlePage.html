@@ -3,9 +3,43 @@
   <head>
     <title>Cart</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/qz/rsvp-3.1.0.min.js"></script>
+    <script src="js/qz/sha-256.min.js"></script>
+    <script src="js/qz/qz-tray.js"></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" /> -->
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script type="text/javascript">
+    var printerConnected;
+    function printQZ(){
+      if (!printerConnected){
+        printerConnect();
+      }
+
+      findPrinters();
+
+      function findPrinters() {
+       qz.printers.find().then(function(data) {
+          var list = '';
+          for(var i = 0; i < data.length; i++) {
+             list += "&nbsp; " + data[i] + "<br/>";
+         }
+         displayMessage("<strong>Available printers:</strong><br/>" + list);
+      }).catch(function(e) { console.error(e); });
+}
+
+    }
+
+      function printerConnect() {
+
+        qz.websocket.connect().then(function() {
+           alert("Connected!");
+           printerConnected = true;
+
+        });
+      }
+    </script>
+
   </head>
 
   <body ng-app="app" ng-Controller="StoreController as storeCtrl">
@@ -286,7 +320,8 @@
           <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
           <div>
             <button id="clear-cart" ng-click="menuCtrl.clearCart()">Clear cart</button>
-            <button id="print" ng-click="menuCtrl.clearCart()">print</button>
+            <!-- <button id="print" ng-click="menuCtrl.clearCart()">print</button> -->
+            <button id="print" onclick="printQZ()">print</button>
           </div>
         </div>
       </div>
@@ -302,39 +337,6 @@
         <!-- <hr /> -->
       </div>
     </div>
-
-    <div id="printPage">
-    <!-- <h2>Papa Satay</h2> -->
-    <div class="print-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
-      <ul id="show-cart">
-        <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
-          <table>
-            <tr>
-                <td>{{order.name}}</td>
-                <td><button ng-click="menuCtrl.removeOne(order)">-</button></td>
-                <td>{{order.quantity}}</td>
-                <td><button ng-click="menuCtrl.addOne(order)">+</button></td>
-                <td>= {{order.price | currency}}</td>
-                <td><button ng-click="menuCtrl.removeItem(order)">X</button></td>
-            </tr>
-          </table>
-          <!-- {{order.name}}
-          <button ng-click="menuCtrl.removeOne(order)">-</button>
-          {{order.quantity}}
-          <button ng-click="menuCtrl.addOne(order)">+</button>
-          =
-          {{order.price | currency}}
-          <button ng-click="menuCtrl.removeItem(order)">X</button> -->
-        </li>
-      </ul>
-      <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
-      <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
-      <div>
-        <button id="clear-cart" ng-click="menuCtrl.clearCart()">Clear cart</button>
-        <button id="print" ng-click="menuCtrl.clearCart()">print</button>
-      </div>
-    </div>
-  </div>
   </body>
 
 </html>
