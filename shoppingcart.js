@@ -1,4 +1,4 @@
-// Shopping Cart functions  
+// Shopping Cart functions
 
 
 var shoppingCart = {};
@@ -38,23 +38,23 @@ shoppingCart.setCountForItem = function (name,count)
     this.saveCart();
 };
 
-shoppingCart.removeItemFromCart = function (name) 
+shoppingCart.removeItemFromCart = function (name)
 {
 
-    for (var i in this.cart) 
+    for (var i in this.cart)
     {
-        if (this.cart[i].name === name) 
-        { 
+        if (this.cart[i].name === name)
+        {
 
             this.cart[i].count--;
-            if (this.cart[i].count === 0) 
+            if (this.cart[i].count === 0)
             {
                 this.cart.splice(i, 1);
             }
             break;
         }
     }
-    this.saveCart();            
+    this.saveCart();
 };
 
 shoppingCart.removeItemFromCartAll = function (name) {
@@ -76,7 +76,7 @@ shoppingCart.clearCart = function () {
 
 shoppingCart.countCart = function () {
     var totalCount = 0;
-    for (var i in this.cart) 
+    for (var i in this.cart)
     {
         totalCount += this.cart[i].count;
     }
@@ -86,7 +86,7 @@ shoppingCart.countCart = function () {
 
 shoppingCart.totalCart = function () {
     var totalCost = 0;
-    for (var i in this.cart) {                
+    for (var i in this.cart) {
 
         totalCost += this.cart[i].price * this.cart[i].count;
 
@@ -98,14 +98,14 @@ shoppingCart.totalCart = function () {
 
 
 
-shoppingCart.listCart = function () 
+shoppingCart.listCart = function ()
 {
     var cartCopy = [];
-    for (var i in this.cart) 
+    for (var i in this.cart)
     {
         var item = this.cart[i];
         var itemCopy = {};
-        for (var p in item) 
+        for (var p in item)
         {
             itemCopy[p] = item[p];
         }

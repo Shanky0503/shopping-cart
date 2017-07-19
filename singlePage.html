@@ -15,49 +15,18 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" /> -->
     <link rel="stylesheet" href="css/app.css" />
     <script type="text/javascript">
-
-    $(document).ready(function() {
-      console.log("running");
-      function startConnection(config) {
-          if (!qz.websocket.isActive()) {
-              updateState('Waiting', 'default');
-              qz.websocket.connect(config).then(function() {
-                  updateState('Active', 'success');
-                  findVersion();
-              }).catch(handleConnectionError);
-          } else {
-              displayMessage('An active connection with QZ already exists.', 'alert-warning');
-          }
-      }
-    )}
-
-    var printerConnected;
-    function printQZ(){
-      if (!printerConnected){
-        printerConnect();
-      }
-
-      findPrinters();
-
-      function findPrinters() {
-       qz.printers.find().then(function(data) {
-          var list = '';
-          for(var i = 0; i < data.length; i++) {
-             list += "&nbsp; " + data[i] + "<br/>";
-         }
-         displayMessage("<strong>Available printers:</strong><br/>" + list);
-      }).catch(function(e) { console.error(e); });
-}
-
+    function saveLocalData () {
+        localStorage.setItem("shoppingCart", JSON.stringify(this.cart));
     }
 
-      function printerConnect() {
-
+      function printQZ(){
         qz.websocket.connect().then(function() {
-           alert("Connected!");
-           printerConnected = true;
-
-        });
+           return qz.printers.find("zebra")               // Pass the printer name into the next Promise
+        }).then(function(printer) {
+           var config = qz.configs.create(printer);       // Create a default config for the found printer
+           var data = ['^XA^FO50,50^ADN,36,20^FDRAW ZPL EXAMPLE^FS^XZ'];   // Raw ZPL
+           return qz.print(config, data);
+        }).catch(function(e) { console.error(e); });
       }
     </script>
 
@@ -206,7 +175,7 @@
             </tr>
           </table>
 
-          <h3 id="ChefsSpecial">Chef's Special</h3>
+          <h3 id="ChefsSpecial">Chefs Special</h3>
           <table class="table-whole" id="item-table-mains">
             <tr ng-repeat="menu in menuCtrl.menuItem | filter: 'Special'" ng-click="menuCtrl.addMenu(menu)">
               <td>
@@ -342,7 +311,7 @@
           <div>
             <button id="clear-cart" ng-click="menuCtrl.clearCart()">Clear cart</button>
             <!-- <button id="print" ng-click="menuCtrl.clearCart()">print</button> -->
-            <button id="print" onclick="printQZ()">print</button>
+            <button id="print"><a href="print.html">print</a></button>
           </div>
         </div>
       </div>

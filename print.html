@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/dependencies/rsvp-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/dependencies/sha-256.min.js"></script>
+    <script type="text/javascript" src="js/qz-tray.js"></script>
+    <title>print Test</title>
+    <script type="text/javascript">
+    var printerName;
+    (function(){
+      console.log("THE function is running");
+      qz.websocket.connect().then(function() {
+         alert("Connected!");
+      });
+    })();
+
+    function findPrinters() {
+      qz.printers.find("EPSON").then(function(found) {
+        // console.log("printers");
+        alert("Printer: " + found);
+        // printerName = found;
+        print(found);
+      });
+    }
+
+    function print(name){
+      var config = qz.configs.create(name);               // Exact printer name from OS
+      var data = ['^XA^FO50,50^ADN,36,20^FDRAW ZPL EXAMPLE^FS^XZ'];   // Raw commands (ZPL provided)
+      qz.print(config, data).then(function() {
+        return qz.print(config, data);
+      });
+    }
+
+    function totalPrint (){
+      qz.websocket.connect().then(function() {
+         return qz.printers.find("zebra")               // Pass the printer name into the next Promise
+      }).then(function(printer) {
+         var config = qz.configs.create(printer);       // Create a default config for the found printer
+         var data = ['^XA^FO50,50^ADN,36,20^FDRAW ZPL EXAMPLE^FS^XZ'];   // Raw ZPL
+         return qz.print(config, data);
+      }).catch(function(e) { console.error(e); });
+    }
+
+    </script>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="findPrinters()">print</button>
+  </body>
+</html>
