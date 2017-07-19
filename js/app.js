@@ -240,6 +240,18 @@
       console.log("");
     }
 
+    this.printBill = function(){
+      var items =  this.table[this.tableNo-1].orders;
+      var printString = [];
+      var count = 0;
+      angular.forEach(items, function(item){
+        printString[count] = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
+        count++;
+      });
+      console.log(printString);
+      printerPrint(printString);
+    }
+
   }]);
 
 })();
