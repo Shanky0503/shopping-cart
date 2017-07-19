@@ -243,13 +243,30 @@
     this.printBill = function(){
       var items =  this.table[this.tableNo-1].orders;
       var printString = [];
-      var count = 0;
+      var total = 0;
+      printString =[  '\x1B' + '\x40',          // init
+                     '\x1B' + '\x61' + '\x31', // center align
+                     'Beverly Hills, CA  90210' + '\x0A',
+                     '\x0A',                   // line break
+                     'www.qz.io' + '\x0A',     // text and line break
+                     '\x0A',                   // line break
+                     '\x0A',                   // line break
+                     'May 18, 2016 10:30 AM' + '\x0A',
+                     '\x0A',                   // line break
+                     '\x0A',                   // line break
+                     '\x0A',
+                     'Transaction # 123456 Register: 3' + '\x0A',
+                     '\x0A',
+                     '\x0A',
+                     '\x0A',
+                     '\x1B' + '\x61' + '\x30']; // left align
       angular.forEach(items, function(item){
-        printString[count] = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
-        count++;
+        printString.push(item.name + '   ' + item.quantity + '  ' + item.price + '\x0A');
+        total += item.price;
       });
       console.log(printString);
-      printerPrint(printString);
+      printString.push('Total = ' + total + '\x0A');
+      //printerPrint(printString);
     }
 
   }]);
