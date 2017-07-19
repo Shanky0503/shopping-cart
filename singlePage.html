@@ -4,12 +4,33 @@
     <title>Cart</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/qz/rsvp-3.1.0.min.js"></script>
+    <!-- <script src="js/qz/rsvp-3.1.0.min.js"></script>
     <script src="js/qz/sha-256.min.js"></script>
-    <script src="js/qz/qz-tray.js"></script>
+    <script src="js/qz/qz-tray.js"></script> -->
+    <script type="text/javascript" src="js/dependencies/rsvp-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/dependencies/sha-256.min.js"></script>
+    <script type="text/javascript" src="js/qz-tray.js"></script>
+
+    <script type="text/javascript" src="js/additional/jquery-1.11.3.min.js"></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" /> -->
     <link rel="stylesheet" href="css/app.css" />
     <script type="text/javascript">
+
+    $(document).ready(function() {
+      console.log("running");
+      function startConnection(config) {
+          if (!qz.websocket.isActive()) {
+              updateState('Waiting', 'default');
+              qz.websocket.connect(config).then(function() {
+                  updateState('Active', 'success');
+                  findVersion();
+              }).catch(handleConnectionError);
+          } else {
+              displayMessage('An active connection with QZ already exists.', 'alert-warning');
+          }
+      }
+    )}
+
     var printerConnected;
     function printQZ(){
       if (!printerConnected){
