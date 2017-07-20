@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/dependencies/rsvp-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/dependencies/sha-256.min.js"></script>
     <script type="text/javascript" src="js/qz-tray.js"></script>
+    <script src="js/app.js"></script>
     <title>print Test</title>
     <script type="text/javascript">
     var printerName;
@@ -15,6 +16,7 @@
       qz.websocket.connect().then(function() {
          alert("Connected!");
       });
+      console.log(loadDataFromStorage());
     })();
 
     function findPrinters() {
@@ -30,7 +32,7 @@
     function loadDataFromStorage (){
       var loadedData = JSON.parse(localStorage.getItem("shoppingCart"));
       return loadedData;
-    }
+        }
 
     // function print(name){
     //   var config = qz.configs.create(name);               // Exact printer name from OS
@@ -101,10 +103,29 @@
          return qz.print(config, data);
       }).catch(function(e) { console.error(e); });
     }
-
     </script>
   </head>
-  <body>
+  <body  ng-app="app" ng-Controller="StoreController as storeCtrl">
+    <div class="sidelist-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
+      <ul id="show-cart">
+        <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
+          {{order.name}}
+          <button ng-click="menuCtrl.removeOne(order)">-</button>
+          {{order.quantity}}
+          <button ng-click="menuCtrl.addOne(order)">+</button>
+          =
+          {{order.price | currency}}
+          <button ng-click="menuCtrl.removeItem(order)">X</button>
+        </li>
+      </ul>
+      <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
+      <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
+      <div>
+        <button id="clear-cart" ng-click="menuCtrl.clearCart()">Clear cart</button>
+        <!-- <button id="print" ng-click="menuCtrl.printBill()">print</button> -->
+        <button id="print"><a href="print.html">Print</a></button>
+      </div>
+    </div>
     <button type="button" name="button" ng-click="menuCtrl.printBill()">print</button>
   </body>
 </html>

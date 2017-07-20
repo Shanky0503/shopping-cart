@@ -245,15 +245,16 @@
       var items =  this.table[this.tableNo-1].orders;
       var printString = [];
       var total = 0;
+      var items;
 
       angular.forEach(items, function(item){
         var data = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
         total += item.price;
-        localStorage.setItem("cartItems", JSON.stringify(data));
       });
-      console.log(printString);
-      printString.push('Total = ' + total + '\x0A');
-      printToPos(printString);
+      localStorage.setItem("cartItems", JSON.stringify(data));
+      //console.log(printString);
+      //printString.push('Total = ' + total + '\x0A');
+      //printToPos(printString);
     }
 
   }]);
