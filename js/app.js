@@ -241,22 +241,32 @@
     }
 
     this.printBill = function(){
-      console.log("Printing Bill");
+      console.log("entering printBill");
       var items =  this.table[this.tableNo-1].orders;
       var printString = [];
+      var count = 0;
       var total = 0;
-      var items;
-
+      printString =[]; // left align
+      printString ={}; // left align
+      console.log("Before forEach");
       angular.forEach(items, function(item){
-        var data = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
-        total += item.price;
+      // printString[count] = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
+      // count++;
+      // printString.push(item.name + '        ' + item.quantity + '       ' + item.price + '\x0A');
+      // printString.item = item.name + '        ' + item.quantity + '       ' + item.price;
+      printString.push({"item":{ name: item.name, quandity: item.quantity, price:item.price}});
+      // printString.name = item.name;
+      // printString.quandity = item.quantity;
+      // printString.price = item.price;
+      total += item.price;
       });
-      localStorage.setItem("cartItems", JSON.stringify(data));
       //console.log(printString);
-      //printString.push('Total = ' + total + '\x0A');
-      //printToPos(printString);
-    }
-
+      // printString.push('Total = ' + total + '\x0A');
+      printString.total = total;
+      // printString.push('\x1B' + '\x69'+'\x10' + '\x14' + '\x01' + '\x00' + '\x05');
+      printerPrint(printString);
+      //printerPrint(printString);
+      }
   }]);
 
 })();
