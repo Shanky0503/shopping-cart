@@ -16,7 +16,7 @@
       qz.websocket.connect().then(function() {
          alert("Connected!");
       });
-      console.log(loadDataFromStorage());
+      //console.log(loadDataFromStorage());
     })();
 
     function findPrinters() {
@@ -47,23 +47,24 @@
         var data = [
            '\x1B' + '\x40',          // init
            '\x1B' + '\x61' + '\x31', // center align
-           'Beverly Hills, CA  90210' + '\x0A',
+           '\x1B' + '\x45' + '\x0D', // bold on
+           'Papa Satay' + '\x0A',
+           '\x1B' + '\x45' + '\x0A', // bold off
            '\x0A',                   // line break
-           'www.qz.io' + '\x0A',     // text and line break
+           '22 Allen Street, Te Aro, Wellington' + '\x0A',     // text and line break
            '\x0A',                   // line break
            '\x0A',                   // line break
-           'May 18, 2016 10:30 AM' + '\x0A',
+           'July 20, 2017 05:13 PM' + '\x0A',
            '\x0A',                   // line break
            '\x0A',                   // line break
-           '\x0A',
-           'Transaction # 123456 Register: 3' + '\x0A',
+           'GST No : 119-960-851' + '\x0A',
            '\x0A',
            '\x0A',
            '\x0A',
            '\x1B' + '\x61' + '\x30', // left align
-           'Baklava (Qty 4)       9.00' + '\x1B' + '\x74' + '\x13' + '\xAA', //print special char symbol after numeric
+           'Chicken Rendang  x  2     9.00' + '\x1B' + '\x74' + '\x13' + '\xAA', //print special char symbol after numeric
            '\x0A',
-           'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' + '\x0A',
+          //  'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' + '\x0A',
            '\x1B' + '\x45' + '\x0D', // bold on
            'Here\'s some bold text!',
            '\x0A',
@@ -105,27 +106,8 @@
     }
     </script>
   </head>
-  <body  ng-app="app" ng-Controller="StoreController as storeCtrl">
-    <div class="sidelist-holder" ng-show="menuCtrl.table[menuCtrl.tableNo-1].occupied">
-      <ul id="show-cart">
-        <li id="sidelist" class="side-items" ng-repeat="order in menuCtrl.table[menuCtrl.tableNo-1].orders">
-          {{order.name}}
-          <button ng-click="menuCtrl.removeOne(order)">-</button>
-          {{order.quantity}}
-          <button ng-click="menuCtrl.addOne(order)">+</button>
-          =
-          {{order.price | currency}}
-          <button ng-click="menuCtrl.removeItem(order)">X</button>
-        </li>
-      </ul>
-      <div> You have {{menuCtrl.getItems(menuCtrl.table[menuCtrl.tableNo-1].orders)}} items in your cart</div>
-      <div> Total Cart: {{menuCtrl.getTotal(menuCtrl.table[menuCtrl.tableNo-1]) | currency}}</div>
-      <div>
-        <button id="clear-cart" ng-click="menuCtrl.clearCart()">Clear cart</button>
-        <!-- <button id="print" ng-click="menuCtrl.printBill()">print</button> -->
-        <button id="print"><a href="print.html">Print</a></button>
-      </div>
-    </div>
-    <button type="button" name="button" ng-click="menuCtrl.printBill()">print</button>
+  <body >
+    <button type="button" name="button" onclick="findPrinters()">print</button>
+    <button type="button" name="button"><a href="singlePage.html">Back To Cart</a></button>
   </body>
 </html>
