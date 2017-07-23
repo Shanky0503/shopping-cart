@@ -15,7 +15,7 @@
       { name: 'Mixed Platter', price: 30.00, category: 'starters' },
       { name: 'Chicken Curry Corner', price: 18.90, category: 'CurryCorner' },
       { name: 'Lamb Curry Corner', price: 18.90, category: 'CurryCorner' },
-      { name: 'Fish and Okra Gulai', price: 21.90, category: 'Gulai' },
+      { name: 'Fish & Okra Gulai', price: 21.90, category: 'Gulai' },
       { name: 'Prawn Gulai', price: 21.90, category: 'Gulai' },
       { name: 'Chicken Sambal', price: 18.90, category: 'Sambal' },
       { name: 'Fish Sambal', price: 21.90, category: 'Sambal' },
@@ -54,7 +54,7 @@
       { name: 'Kothu Roti', price: 18.90, category: 'Roti' },
       { name: 'Plain Roti', price: 3.00, category: 'Roti' },
       { name: 'Garlic Roti', price: 3.50, category: 'Roti' },
-      { name: 'Egg and Onion Roti', price: 4.50, category: 'Roti' },
+      { name: 'Egg & Onion Roti', price: 4.50, category: 'Roti' },
       { name: 'Coconut Rice', price: 2.50, category: 'Side' },
       { name: 'Pappadoms', price: 1.50, category: 'Side' },
       { name: 'Peanut Sauce', price: 3.00, category: 'Side' },
@@ -64,29 +64,29 @@
       { name: 'Extra03', price: 2.00, category: 'Side' },
       { name: 'Extra04', price: -1.00, category: 'Side' },
       { name: 'BYO', price: 5.00, category: 'whitewine' },
-      { name: 'Mi Terruno - Chardonnay Glass', price: 7.50, category: 'whitewine' },
-      { name: 'Mi Terruno - Chardonnay Bottle', price: 34.00, category: 'whitewine' },
-      { name: 'Riverstone - Gewurztraminer Glass', price: 7.50, category: 'whitewine' },
-      { name: 'Riverstone - Gewurztraminer Bottle', price: 34.00, category: 'whitewine' },
-      { name: 'Castelani - Pinot Gris Glass', price: 7.50, category: 'whitewine' },
-      { name: 'Castelani - Pinot Gris Bottle', price: 34.00, category: 'whitewine' },
-      { name: 'Giesen - Riesling Glass', price: 8.50, category: 'whitewine' },
-      { name: 'Giesen - Riesling Bottle', price: 37.00, category: 'whitewine' },
-      { name: 'Sula - Sauvingnon Glass', price: 7.50, category: 'whitewine' },
-      { name: 'Sula - Sauvingnon Glass', price: 34.00, category: 'whitewine' },
-      { name: 'Expresion - Extra Brut Sparklink Bottle', price: 34.00, category: 'whitewine' },
-      { name: 'Escude - Merlot/Tempranillo Glass', price: 7.50, category: 'Red' },
-      { name: 'Escude - Merlot/Tempranillo Bottle', price: 34.00, category: 'Red' },
-      { name: 'Terre - Cabernet Glass', price: 7.50, category: 'Red' },
-      { name: 'Terre - Cabernet Bottle', price: 34.00, category: 'Red' },
-      { name: 'Caleche - Shiraz Glass', price: 7.50, category: 'Red' },
-      { name: 'Caleche - Shiraz Bottle', price: 34.00, category: 'Red' },
-      { name: 'Trivento - Pinot Noir Glass', price: 7.50, category: 'Red' },
-      { name: 'Trivento - Pinot Noir Bottle', price: 34.00, category: 'Red' },
-      { name: 'Sula - Syrah Glass', price: 7.50, category: 'Red' },
-      { name: 'Sula - Syrah Bottle', price: 34.00, category: 'Red' },
-      { name: 'Contrada Monte - Rose Glass', price: 7.50, category: 'Red' },
-      { name: 'Contrada Monte - Rose Bottle', price: 34.00, category: 'Red' },
+      { name: 'Chardonnay Glass', price: 7.50, category: 'whitewine' },
+      { name: 'Chardonnay Bottle', price: 34.00, category: 'whitewine' },
+      { name: 'Gewurztraminer Glass', price: 7.50, category: 'whitewine' },
+      { name: 'Gewurztraminer Bottle', price: 34.00, category: 'whitewine' },
+      { name: 'Pinot Gris Glass', price: 7.50, category: 'whitewine' },
+      { name: 'Pinot Gris Bottle', price: 34.00, category: 'whitewine' },
+      { name: 'Riesling Glass', price: 8.50, category: 'whitewine' },
+      { name: 'Riesling Bottle', price: 37.00, category: 'whitewine' },
+      { name: 'Sauvingnon Glass', price: 7.50, category: 'whitewine' },
+      { name: 'Sauvingnon Glass', price: 34.00, category: 'whitewine' },
+      { name: 'Sparklink Bottle', price: 34.00, category: 'whitewine' },
+      { name: 'Merlot Glass', price: 7.50, category: 'Red' },
+      { name: 'Merlot Bottle', price: 34.00, category: 'Red' },
+      { name: 'Cabernet Glass', price: 7.50, category: 'Red' },
+      { name: 'Cabernet Bottle', price: 34.00, category: 'Red' },
+      { name: 'Shiraz Glass', price: 7.50, category: 'Red' },
+      { name: 'Shiraz Bottle', price: 34.00, category: 'Red' },
+      { name: 'Pinot Noir Glass', price: 7.50, category: 'Red' },
+      { name: 'Pinot Noir Bottle', price: 34.00, category: 'Red' },
+      { name: 'Syrah Glass', price: 7.50, category: 'Red' },
+      { name: 'Syrah Bottle', price: 34.00, category: 'Red' },
+      { name: 'Rose Glass', price: 7.50, category: 'Red' },
+      { name: 'Rose Bottle', price: 34.00, category: 'Red' },
       { name: 'Asahi', price: 8.00, category: 'Beer' },
       { name: 'Corona', price: 8.00, category: 'Beer' },
       { name: 'Heineken', price: 7.00, category: 'Beer' },
@@ -94,7 +94,7 @@
       { name: 'Kingfisher Lager', price: 7.50, category: 'Beer' },
       { name: 'Monteiths Range', price: 7.00, category: 'Beer' },
       { name: 'Steinlager', price: 8.00, category: 'Beer' },
-      { name: 'Stella Artois Pilsner ', price: 8.00, category: 'Beer' },
+      { name: 'Stella Artois', price: 8.00, category: 'Beer' },
       { name: 'Tiger Lager ', price: 8.00, category: 'Beer' },
       { name: 'Tuatara Pilsner ', price: 8.00, category: 'Beer' },
       { name: 'Coke', price: 3.50, category: 'SoftDrinks' },
@@ -240,34 +240,96 @@
       console.log("");
     }
 
-    this.printBill = function(){
+// Raw printing with single string
+
+this.printBill = function(){
       console.log('Entering printBill');
       var items = this.table[this.tableNo - 1].orders;
       var printString = '';
       var count = 0;
       var total = 0;
-
-      printString = '<h1 style="text-align: center">Papa Satay</h1>';
-      printString += '<table style="width: 100%">';
-      printString += '<tr style="margin-bottom:40px"><th width="60%" style="text-align: left">Item Name</th><th width="10%">Quantity</th><th width="30%" style="text-align: right">Price</th></tr>';
+      //var date = new Date;
+      printString += '\x1B\x40';
+      printString += '\x1B\x61\x31';
+      printString += '\x1B\x45\x0D';
+      printString += 'Papa Satay\x0A';
+      printString += '\x1B\x45\x0A';
+      printString += '22 Allen Street, Te Aro, Wellington\x0A';
+      printString += '\x0A';
+      printString += '\x0A';
+      printString += '\x0A';
+      printString += 'GST No: 119-960-851';
+      printString += '\x0A\x0A';
+      printString += '\x1B\x61\x30';
 
       angular.forEach(items, function(item){
-        printString += '<tr><td>' + item.name + '</td>';
-        printString += '<td style="text-align: center">' + item.quantity + '</td>';
-        printString += '<td style="text-align: right">' + item.price + '</td></tr>';
-      });
-      printString += '</table>'
+        var tab = '';
+    		if(item.name.length >= 15)
+    			tab = '\x09';
+    		else
+    			tab = '\x09\x09';
 
-      var data = [{
-        type: 'html',
-        format: 'plain',
-        data: printString
-      }];
-      printerPrint(data);
+        printString += item.name + tab + item.quantity + '\x09' + item.price + '\x0A';
+        total += item.price;
+        math.
+
+        // printString += item.name + '\x09\x09' + item.quantity + '\x09' + item.price + '\x0A';
+        // total += item.price;
+      });
+
+      printString += '\x1B\x45\x0D';
+      printString += 'Total: \x09\x09\x09\x09' + total;
+      printString += '\x1B\x45\x0A';
+      printString += '\x0A\x0A\x0A\x0A\x0A\x0A';
+      printString += '\x1B\x69'; //paper cut
+      printString += '\x10\x14\x01\x00\x05'; //tilt opening
+      printerPrint(printString);
+
     }
 
+// using HTML Pixel Printing
+
+    //
+    // this.printBill = function(){
+    //   console.log('Entering printBill');
+    //   var items = this.table[this.tableNo - 1].orders;
+    //   var printString = '';
+    //   var count = 0;
+    //   var total = 0;
+    //
+    //   printString = '<h1 style="text-align: center">Papa Satay</h1>';
+    //   printString += '<h2 style="text-align: center">22 Allen Street, Wellington</h2>';
+    //   printString += '<table style="width: 100%">';
+    //   printString += '<tr style="margin-bottom:40px"><th width="60%" style="text-align: left">Item Name</th><th width="10%">Quantity</th><th width="30%" style="text-align: right">Price</th></tr>';
+    //
+    //   angular.forEach(items, function(item){
+    //     printString += '<tr><td>' + item.name + '</td>';
+    //     printString += '<td style="text-align: center">' + item.quantity + '</td>';
+    //     printString += '<td style="text-align: right">$' + item.price + '</td></tr>';
+    //     total += item.price;
+    //   });
+    //   printString += '<tr><td></td>';
+    //   printString += '<td style="text-align: center">Total</td>';
+    //   printString += '<td style="text-align: right">$' + total + '</td></tr>';
+    //   printString += '</table><br /><br />'
+    //
+    //   // var data = [{
+    //   //   type: 'html',
+    //   //   format: 'plain',
+    //   //   data: printString
+    //   // }];
+    //
+    //   var data = [
+    //           {type: 'html',format: 'plain',data: printString},
+    //           '\x1B\x69',
+    //           '\x10\x14\x01\x00\x05'
+    //   ];
+    //
+    //   printerPrint(data);
+    // }
 
 
+// using Epos commands
 
     // this.printBill = function(){
     //   console.log("entering printBill");

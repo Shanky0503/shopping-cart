@@ -24,7 +24,8 @@ var config;
 function printerPrint(printString){
   console.log("Printer Function running");
   console.log(printString);
-  qz.print(config, printString).then(function(){
+  var data = [printString];
+  qz.print(config, data).then(function(){
     alert('Printed!');
   });
 }
