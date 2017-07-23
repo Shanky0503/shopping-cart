@@ -241,32 +241,61 @@
     }
 
     this.printBill = function(){
-      console.log("entering printBill");
-      var items =  this.table[this.tableNo-1].orders;
-      var printString = [];
+      console.log('Entering printBill');
+      var items = this.table[this.tableNo - 1].orders;
+      var printString = '';
       var count = 0;
       var total = 0;
-      printString =[]; // left align
-      printString ={}; // left align
-      console.log("Before forEach");
+
+      printString = '<h1 style="text-align: center">Papa Satay</h1>';
+      printString += '<table style="width: 100%">';
+      printString += '<tr style="margin-bottom:40px"><th width="60%" style="text-align: left">Item Name</th><th width="10%">Quantity</th><th width="30%" style="text-align: right">Price</th></tr>';
+
       angular.forEach(items, function(item){
-      // printString[count] = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
-      // count++;
-      // printString.push(item.name + '        ' + item.quantity + '       ' + item.price + '\x0A');
-      // printString.item = item.name + '        ' + item.quantity + '       ' + item.price;
-      printString.push({"item":{ name: item.name, quandity: item.quantity, price:item.price}});
-      // printString.name = item.name;
-      // printString.quandity = item.quantity;
-      // printString.price = item.price;
-      total += item.price;
+        printString += '<tr><td>' + item.name + '</td>';
+        printString += '<td style="text-align: center">' + item.quantity + '</td>';
+        printString += '<td style="text-align: right">' + item.price + '</td></tr>';
       });
-      //console.log(printString);
-      // printString.push('Total = ' + total + '\x0A');
-      printString.total = total;
-      // printString.push('\x1B' + '\x69'+'\x10' + '\x14' + '\x01' + '\x00' + '\x05');
-      printerPrint(printString);
-      //printerPrint(printString);
-      }
+      printString += '</table>'
+
+      var data = [{
+        type: 'html',
+        format: 'plain',
+        data: printString
+      }];
+      printerPrint(data);
+    }
+
+
+
+
+    // this.printBill = function(){
+    //   console.log("entering printBill");
+    //   var items =  this.table[this.tableNo-1].orders;
+    //   var printString = [];
+    //   var count = 0;
+    //   var total = 0;
+    //   printString =[]; // left align
+    //   // printString ={}; // left align
+    //   console.log("Before forEach");
+    //   angular.forEach(items, function(item){
+    //   // printString[count] = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
+    //   // count++;
+    //   printString.push(item.name + '        ' + item.quantity + '       ' + item.price + '\x0A');
+    //   // printString.item = item.name + '        ' + item.quantity + '       ' + item.price;
+    //   // printString.push({"item":{ name: item.name, quandity: item.quantity, price:item.price}});
+    //   // printString.name = item.name;
+    //   // printString.quandity = item.quantity;
+    //   // printString.price = item.price;
+    //   total += item.price;
+    //   });
+    //   //console.log(printString);
+    //   printString.push('Total = ' + total + '\x0A');
+    //   // printString.total = total;
+    //   // printString.push('\x1B' + '\x69'+'\x10' + '\x14' + '\x01' + '\x00' + '\x05');
+    //   printerPrint(printString);
+    //   //printerPrint(printString);
+    //   }
   }]);
 
 })();
