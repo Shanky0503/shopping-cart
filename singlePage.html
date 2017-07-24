@@ -55,6 +55,7 @@
           <option  ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
         </select>
         <!-- <button ng-click="menuCtrl.tableNo = $index+1" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button> -->
+        <button ng-click="menuCtrl.buttonNumber($index+1)" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button>
         <div id="starters">
           <h2>Starters</h2>
           <table class="table-whole" id="item-table-starter">
@@ -311,7 +312,6 @@
         <!-- <hr /> -->
       </div>
     </div>
-    <script type="text/javascript" src="js/print.js"></script>
   </body>
 
 </html>

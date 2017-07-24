@@ -125,28 +125,28 @@
 
     ];
     $rootScope.table = [
-      {no: '1', occupied: false, orders: [], total: 0},
-      {no: '2', occupied: false, orders: [], total: 0},
-      {no: '3', occupied: false, orders: [], total: 0},
-      {no: '4', occupied: false, orders: [], total: 0},
-      {no: '5', occupied: false, orders: [], total: 0},
-      {no: '6', occupied: false, orders: [], total: 0},
-      {no: '7', occupied: false, orders: [], total: 0},
-      {no: '8', occupied: false, orders: [], total: 0},
-      {no: '9', occupied: false, orders: [], total: 0},
-      {no: '10', occupied: false, orders: [], total: 0},
-      {no: '11', occupied: false, orders: [], total: 0},
-      {no: '12', occupied: false, orders: [], total: 0},
-      {no: '13', occupied: false, orders: [], total: 0},
-      {no: '14', occupied: false, orders: [], total: 0},
-      {no: '15', occupied: false, orders: [], total: 0},
-      {no: '16', occupied: false, orders: [], total: 0},
-      {no: 'Side 01', occupied: false, orders: [], total: 0},
-      {no: 'Side 02', occupied: false, orders: [], total: 0},
-      {no: 'Side 03', occupied: false, orders: [], total: 0},
-      {no: 'Side 04', occupied: false, orders: [], total: 0},
-      {no: 'Side 05', occupied: false, orders: [], total: 0},
-      {no: 'Take Away', occupied: false, orders: [], total: 0}
+      {no: '1', occupied: false, orders: [],people:0, total: 0},
+      {no: '2', occupied: false, orders: [],people:0, total: 0},
+      {no: '3', occupied: false, orders: [],people:0, total: 0},
+      {no: '4', occupied: false, orders: [],people:0, total: 0},
+      {no: '5', occupied: false, orders: [],people:0, total: 0},
+      {no: '6', occupied: false, orders: [],people:0, total: 0},
+      {no: '7', occupied: false, orders: [],people:0, total: 0},
+      {no: '8', occupied: false, orders: [],people:0, total: 0},
+      {no: '9', occupied: false, orders: [],people:0, total: 0},
+      {no: '10', occupied: false, orders: [],people:0, total: 0},
+      {no: '11', occupied: false, orders: [],people:0, total: 0},
+      {no: '12', occupied: false, orders: [],people:0, total: 0},
+      {no: '13', occupied: false, orders: [],people:0, total: 0},
+      {no: '14', occupied: false, orders: [],people:0, total: 0},
+      {no: '15', occupied: false, orders: [],people:0, total: 0},
+      {no: '16', occupied: false, orders: [],people:0, total: 0},
+      {no: 'Side 01', occupied: false, orders: [],people:0, total: 0},
+      {no: 'Side 02', occupied: false, orders: [],people:0, total: 0},
+      {no: 'Side 03', occupied: false, orders: [],people:0, total: 0},
+      {no: 'Side 04', occupied: false, orders: [],people:0, total: 0},
+      {no: 'Side 05', occupied: false, orders: [],people:0, total: 0},
+      {no: 'Take Away', occupied: false, orders: [],people:0, total: 0}
     ];
     this.orderView = true;
     this.tables = $rootScope.table;
@@ -252,34 +252,58 @@ this.printBill = function(){
       printString += '\x1B\x40';
       printString += '\x1B\x61\x31';
       printString += '\x1B\x45\x0D';
+      printString += '\x1D\x21\x11';// double font size
       printString += 'Papa Satay\x0A';
-      printString += '\x1B\x45\x0A';
+      printString += '\x0A'; //line Space
+      printString += '\x1D\x21\x00' // standard font size;
       printString += '22 Allen Street, Te Aro, Wellington\x0A';
-      printString += '\x0A';
-      printString += '\x0A';
+      printString += '\x0A'; //line Break
+      printString += 'ph: 04 385 7709\x0A';
       printString += '\x0A';
       printString += 'GST No: 119-960-851';
       printString += '\x0A\x0A';
       printString += '\x1B\x61\x30';
+      printString += '__________________________________________';
+      printString += 'Item Name      ' + '\x09' + 'Quantity' + '\x09' + 'Price' + '\x0A';
+      printString += '__________________________________________';
+      printString += '\x0A'; //line Break\
+      printString += '\x1B\x45\x0A';
 
       angular.forEach(items, function(item){
         var tab = '';
     		if(item.name.length >= 15)
     			tab = '\x09';
-    		else
-    			tab = '\x09\x09';
+    		else if (item.name.length <= 7) {
+    		  tab = '\x09\x09\x09';
+    		}
+        else {
+          tab = '\x09\x09';
+        }
 
         printString += item.name + tab + item.quantity + '\x09' + item.price + '\x0A';
         total += item.price;
-        math.
 
-        // printString += item.name + '\x09\x09' + item.quantity + '\x09' + item.price + '\x0A';
-        // total += item.price;
-      });
+      })
 
       printString += '\x1B\x45\x0D';
-      printString += 'Total: \x09\x09\x09\x09' + total;
+      // printString += '-------------------------------';
+      printString += '__________________________________________';
+      printString += '\x0A'; //line Break
+      printString += '\x09\x09\x09';
+      printString += 'Total:  '+ total;
+      printString += '\x0A'; //line Break
+      // printString += '------------------------------------------';
+      printString += '__________________________________________';
+      printString += '\x0A'; //line Break
       printString += '\x1B\x45\x0A';
+      printString += '\x1B\x61\x31';
+      printString += '\x0A'; //line Break
+      printString += '!!!    Thankyou    !!!';
+      printString += '\x0A'; //line Break
+      printString += 'Please Come Again';
+      printString += '\x0A'; //line Break
+      printString += 'please give feedback on tripadvisor';
+      printString += '\x0A'; //line Break
       printString += '\x0A\x0A\x0A\x0A\x0A\x0A';
       printString += '\x1B\x69'; //paper cut
       printString += '\x10\x14\x01\x00\x05'; //tilt opening
@@ -287,6 +311,10 @@ this.printBill = function(){
 
     }
 
+    this.buttonNumber = function(num){
+      this.tableNo = num;
+      console.log(this.tableNo);
+    }
 // using HTML Pixel Printing
 
     //
