@@ -150,6 +150,9 @@
     ];
     this.orderView = true;
     this.tables = $rootScope.table;
+    $rootScope.noOfPeople = {
+        no: 12
+    };
       this.clearCart = function(index){
       var tempTable = this.tables[index];
       tempTable.occupied=false;
@@ -161,6 +164,9 @@
   app.controller('MenuController',['$rootScope', '$filter', function($rootScope,$filter){
     this.menuItem = $rootScope.menuItem;
     this.table = $rootScope.table;
+    this.people = $rootScope.noOfPeople.no;
+    console.log(this.people);
+
     this.tableNo = 1;
     this.item = function(name, price, cost, quantity){
       this.name = name,
@@ -315,77 +321,15 @@ this.printBill = function(){
       this.tableNo = num;
       console.log(this.tableNo);
     }
-// using HTML Pixel Printing
 
-    //
-    // this.printBill = function(){
-    //   console.log('Entering printBill');
-    //   var items = this.table[this.tableNo - 1].orders;
-    //   var printString = '';
-    //   var count = 0;
-    //   var total = 0;
-    //
-    //   printString = '<h1 style="text-align: center">Papa Satay</h1>';
-    //   printString += '<h2 style="text-align: center">22 Allen Street, Wellington</h2>';
-    //   printString += '<table style="width: 100%">';
-    //   printString += '<tr style="margin-bottom:40px"><th width="60%" style="text-align: left">Item Name</th><th width="10%">Quantity</th><th width="30%" style="text-align: right">Price</th></tr>';
-    //
-    //   angular.forEach(items, function(item){
-    //     printString += '<tr><td>' + item.name + '</td>';
-    //     printString += '<td style="text-align: center">' + item.quantity + '</td>';
-    //     printString += '<td style="text-align: right">$' + item.price + '</td></tr>';
-    //     total += item.price;
-    //   });
-    //   printString += '<tr><td></td>';
-    //   printString += '<td style="text-align: center">Total</td>';
-    //   printString += '<td style="text-align: right">$' + total + '</td></tr>';
-    //   printString += '</table><br /><br />'
-    //
-    //   // var data = [{
-    //   //   type: 'html',
-    //   //   format: 'plain',
-    //   //   data: printString
-    //   // }];
-    //
-    //   var data = [
-    //           {type: 'html',format: 'plain',data: printString},
-    //           '\x1B\x69',
-    //           '\x10\x14\x01\x00\x05'
-    //   ];
-    //
-    //   printerPrint(data);
-    // }
+    this.setPeople = function(){
+      console.log('calling setPeople');
+      var tablePeople = this.table[this.tableNo - 1].people;
+      tablePeople = this.people;
+      console.log(tablePeople);
+    }
 
 
-// using Epos commands
-
-    // this.printBill = function(){
-    //   console.log("entering printBill");
-    //   var items =  this.table[this.tableNo-1].orders;
-    //   var printString = [];
-    //   var count = 0;
-    //   var total = 0;
-    //   printString =[]; // left align
-    //   // printString ={}; // left align
-    //   console.log("Before forEach");
-    //   angular.forEach(items, function(item){
-    //   // printString[count] = item.name + '   ' + item.quantity + '  ' + item.price + '\x0A';
-    //   // count++;
-    //   printString.push(item.name + '        ' + item.quantity + '       ' + item.price + '\x0A');
-    //   // printString.item = item.name + '        ' + item.quantity + '       ' + item.price;
-    //   // printString.push({"item":{ name: item.name, quandity: item.quantity, price:item.price}});
-    //   // printString.name = item.name;
-    //   // printString.quandity = item.quantity;
-    //   // printString.price = item.price;
-    //   total += item.price;
-    //   });
-    //   //console.log(printString);
-    //   printString.push('Total = ' + total + '\x0A');
-    //   // printString.total = total;
-    //   // printString.push('\x1B' + '\x69'+'\x10' + '\x14' + '\x01' + '\x00' + '\x05');
-    //   printerPrint(printString);
-    //   //printerPrint(printString);
-    //   }
   }]);
 
 })();

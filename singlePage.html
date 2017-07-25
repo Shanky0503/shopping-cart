@@ -30,7 +30,7 @@
           <ul class="mainmenu">
             <li><a href="#starters" id="Starters">Starters</a></li>
             <li><a href="#mains" id="Mains" class="">Mains</a>
-              <ul class="submenu">
+              <!-- <ul class="submenu">
                 <li><a href="#CurryCorner">Curry Corner</a></li>
                 <li><a href="#GulaiCorner">Gulai Corner</a></li>
                 <li><a href="#SambalCorner">Sambal Corner</a></li>
@@ -45,17 +45,16 @@
                 <li><a href="#HawkersCorner">Hawkers Corner</a></li>
                 <li><a href="#RotiCorner">Roti Corner</a></li>
                 <li><a href="#Side">Side Corner</a></li>
-              </ul>
+              </ul> -->
             </li>
             <li><a href="#drinks" id="Drinks">Drinks</a></li>
           </ul>
         </div>
         <div id="main">
-        Table number: <select ng-model="menuCtrl.tableNo" ng-init="menuCtrl.count = 0">
-          <option  ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</option>
-        </select>
-        <!-- <button ng-click="menuCtrl.tableNo = $index+1" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button> -->
+        Table number:
         <button ng-click="menuCtrl.buttonNumber($index+1)" ng-repeat="table in menuCtrl.table" value="{{$index+1}}">{{table.no}}</button>
+        <label>Number Of People :<input type="number" name="input" ng-model="noOfPeople.people"min="0" max="99" required></label>
+        <tt>value = {{noOfPeople.people}}</tt><button ng-click="menuCtrl.setPeople()">Confirm</button><br/>
         <div id="starters">
           <h2>Starters</h2>
           <table class="table-whole" id="item-table-starter">
