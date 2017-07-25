@@ -270,7 +270,7 @@ this.printBill = function(){
       printString += '\x0A\x0A';
       printString += '\x1B\x61\x30';
       printString += '__________________________________________';
-      printString += 'Item Name      ' + '\x09' + 'Quantity' + '\x09' + 'Price' + '\x0A';
+      printString += 'Item Name      ' + '\x09' + '   Quantity' + '\x09' + 'Price' + '\x0A';
       printString += '__________________________________________';
       printString += '\x0A'; //line Break\
       printString += '\x1B\x45\x0A';
@@ -286,7 +286,7 @@ this.printBill = function(){
           tab = '\x09\x09';
         }
 
-        printString += item.name + tab + item.quantity + '\x09' + item.price + '\x0A';
+        printString += item.name + tab + item.quantity + '\x09' + '$'+item.price + '\x0A';
         total += item.price;
 
       })
